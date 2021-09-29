@@ -9,7 +9,6 @@ public class Kotik {
     private String meow;
     private int weight;
     private int prettiness;
-    Scanner in = new Scanner(System.in);
     public static int getKitCount() {
         return kitCount;
     }
@@ -31,18 +30,24 @@ public class Kotik {
     boolean sleep(){
         if (golod > 0){
             golod--;
+            System.out.println("Сон ");
             return true;
         }
         else {
+            eat((int)(Math.random() * 5) + 1);
+            System.out.println("НЕ Сон - покушал");
             return false;
         }
     }
     boolean play (){
         if (golod > 0){
             golod--;
+            System.out.println("Игра ");
             return true;
         }
         else {
+            eat((int)(Math.random() * 5) + 1);
+            System.out.println("НЕ Игра - покушал");
             return false;
         }
     }
@@ -50,27 +55,36 @@ public class Kotik {
     boolean chaseMouse(){
         if (golod > 0){
             golod--;
+            System.out.println("Охота ");
             return true;
         }
         else {
+            eat((int)(Math.random() * 5) + 1);
+            System.out.println("НЕ Охота - покушал");
             return false;
         }
     }
     boolean fight (){
         if (golod > 0){
             golod--;
+            System.out.println("Драка ");
             return true;
         }
         else {
+            eat((int)(Math.random() * 5) + 1);
+            System.out.println("НЕ Драка - покушал");
             return false;
         }
     }
     boolean mew (){
         if (golod > 0){
             golod--;
+            System.out.println("Мурчание ");
             return true;
         }
         else {
+            eat((int)(Math.random() * 5) + 1);
+            System.out.println("НЕ Мурчание - покушал");
             return false;
         }
     }
@@ -91,49 +105,19 @@ public class Kotik {
              int j = (int)(Math.random() * 5) + 1;
             switch (j) {
                 case  (1):
-                    if (sleep() == true) {
-                        System.out.println("Сон ");
-                    }
-                    else{
-                        eat((int)(Math.random() * 5) + 1);
-                        System.out.println("НЕ Сон - покушал");
-                    }
+                    sleep();
                     break;
                 case (2):
-                    if (play() == true) {
-                        System.out.println("Игра ");
-                    }
-                    else {
-                        eat((int)(Math.random() * 5) + 1);
-                        System.out.println("НЕ Игра - покушал");
-                    }
+                    play();
                     break;
                 case (3):
-                    if (chaseMouse() == true) {
-                        System.out.println("Охота ");
-                    }
-                    else {
-                        eat((int)(Math.random() * 5) + 1);
-                        System.out.println("НЕ Охота - покушал");
-                    }
+                    chaseMouse();
                     break;
                 case (4):
-                    if (fight() == true) {
-                        System.out.println("Драка ");
-                    }
-                    else {
-                        eat((int)(Math.random() * 5) + 1);
-                        System.out.println("НЕ Драка - покушал");
-                    }
+                    fight();
                     break;
                 case (5):
-                    if (mew() == true) {
-                        System.out.println("Мурчание ");
-                    }
-                    else {
-                        eat((int)(Math.random() * 5) + 1);
-                        System.out.println("НЕ Мурчание - покушал");
-                    }
+                    mew();
                     break;
             }
         }
